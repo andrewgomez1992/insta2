@@ -2,17 +2,15 @@ import Image from "next/image";
 
 import instagram from "../assets/instagram.png";
 import iglogo from "../assets/iglogo.png";
+import drewselfie from "../assets/drewselfie.png";
 
+import { SearchIcon, MenuIcon, HomeIcon } from "@heroicons/react/solid";
 import {
-  SearchIcon,
+  PaperAirplaneIcon,
   PlusCircleIcon,
   UserGroupIcon,
   HeartIcon,
-  PaperAirplaneIcon,
-  MenuIcon,
-  HomeIcon,
-} from "@heroicons/react/solid";
-import { PaperAirplane } from "heroicons-react";
+} from "@heroicons/react/outline";
 
 const Header = () => {
   return (
@@ -54,9 +52,19 @@ const Header = () => {
         </div>
         {/* Right */}
         <div className="flex items-center justify-end space-x-4">
-            <HomeIcon className="navBtn"/>
-            <MenuIcon className="h-6 md:hidden cursor-pointer"/>
-            <PaperAirplaneIcon className="navBtn"/>
+          <HomeIcon className="navBtn" />
+          <MenuIcon className="h-6 md:hidden cursor-pointer" />
+          <PaperAirplaneIcon className="navBtn" />
+          <PlusCircleIcon className="navBtn" />
+          <UserGroupIcon className="navBtn" />
+          <HeartIcon className="navBtn" />
+            <div className="h-10 w-10 rounded-full">
+            <Image
+            src={drewselfie}
+            alt="profile pic"
+            className="rounded-full"
+          />
+            </div>
         </div>
       </div>
     </div>
