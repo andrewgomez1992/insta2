@@ -14,7 +14,7 @@ import {
 
 const Header = () => {
   return (
-    <div className="shadow-md border-b bg-white sticky top-0 z-">
+    <div className="shadow-md shadow-[#00df9a] border-b bg-white sticky top-0 z-">
       <div className="flex justify-between max-w-6xl mx-5 xl:mx-auto">
         {/* Left */}
         <div className="relative hidden lg:inline-grid w-24 cursor-pointer">
