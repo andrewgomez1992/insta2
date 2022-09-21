@@ -1,10 +1,11 @@
 import React from 'react'
+import Image from 'next/image'
 
-const Story = ({img, username}) => {
+const Story = ({name, image}) => {
   return (
     <div>
-        <img src={img} alt="profile image" />
-        <p>{username}</p>
+        <Image src={image} alt="profile image" className=''/>
+        <p>{name}</p>
     </div>
   )
 }
