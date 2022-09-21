@@ -1,13 +1,11 @@
-import React from 'react'
-import Image from 'next/image'
+/* eslint-disable @next/next/no-img-element */
+// const Story = ({ username, avatar }) => {
+//   return (
+//     <div>
+//       <img src={avatar} alt="profile image" />
+//       <p>{username}</p>
+//     </div>
+//   );
+// };
 
-const Story = ({name, image}) => {
-  return (
-    <div>
-        <Image src={image} alt="profile image" className=''/>
-        <p>{name}</p>
-    </div>
-  )
-}
-
-export default Story
+// export default Story;
