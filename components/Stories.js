@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { faker } from "@faker-js/faker";
 import { useState, useLayoutEffect } from "react";
-import Story from "./Story";
 
 const Stories = () => {
 

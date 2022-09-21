@@ -7,4 +7,8 @@
     @apply hidden h-6 md:inline-flex cursor-pointer
     hover:scale-125 transition-all duration-150 ease-out
   }
+
+  .postProfilePic {
+    @apply rounded-full object-contain border p-1 mr-3
+  }
 }
