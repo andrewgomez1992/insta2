@@ -66,7 +66,9 @@ const Header = () => {
           <UserGroupIcon className="navBtn" />
           <HeartIcon className="navBtn" />
 
-          <div className="h-10 w-10 rounded-full">
+          <div className="h-10 w-10 rounded-full
+        cursor-pointer hover:scale-110 transition 
+        transform duration-200 ease-out" >
             <Image
               src={drewselfie}
               alt="profile pic"
