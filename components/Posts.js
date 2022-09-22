@@ -8,21 +8,21 @@ const posts = [
     username: "_drewgomez_",
     userImg: { drewselfie },
     img: { drewselfie },
-    caption: "This is crazy! We need more footage!",
+    caption: "Fresh haircut :)",
   },
   {
     id: "2",
     username: "_drewgomez_",
     userImg: { drewselfie },
     img: { drewselfie },
-    caption: "This is crazy! We need more footage!",
+    caption: "Fresh haircut :)",
   },
   {
     id: "3",
     username: "_drewgomez_",
     userImg: { drewselfie },
     img: { drewselfie },
-    caption: "This is crazy! We need more footage!",
+    caption: "Fresh haircut :)",
   },
 ];
 

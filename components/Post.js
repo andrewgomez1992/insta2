@@ -44,10 +44,22 @@ const Post = ({ id, username, userImg, img, caption }) => {
         <BookmarkIcon className="btn"/>
       </div>
       {/* caption */}
-
+        <p className="p-5 truncate">
+          <span className="font-bold mr-1">{username}</span>
+          {caption}
+        </p>
       {/* comments */}
 
       {/* input box */}
+      <form className="flex items-center p-4">
+        <EmojiHappyIcon className="h-7" />
+        <input 
+        type="text" 
+        className="border-none flex-1 focus:ring-0"
+        placeholder="Add a comment..."
+        />
+        <button className="font-semibold text-[#3c36e9a3]">Post</button>
+      </form>
     </div>
   );
 };
