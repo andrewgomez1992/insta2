@@ -32,7 +32,7 @@ const Post = ({ id, username, userImg, img, caption }) => {
         <DotsHorizontalIcon className="h-5" />
       </div>
       {/* img */}
-
+      <Image src={drewselfie} alt="" className='object-cover w-full' />
       {/* buttons */}
 
       {/* caption */}
