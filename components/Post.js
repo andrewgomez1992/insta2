@@ -16,7 +16,7 @@ import drewselfie from "../assets/drewselfie.png";
 
 const Post = ({ id, username, userImg, img, caption }) => {
   return (
-    <div>
+    <div className='bg-white my-7 border rounded-md'>
       {/* Header */}
       <div className="flex items-center p-5">
         <div className='p-1 mr-3'>
@@ -28,7 +28,7 @@ const Post = ({ id, username, userImg, img, caption }) => {
           height="48px"
         />
         </div>
-        <p className='flex-1'>{username}</p>
+        <p className='flex-1 font-bold'>{username}</p>
         <DotsHorizontalIcon className="h-5" />
       </div>
       {/* img */}
