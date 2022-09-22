@@ -16,25 +16,33 @@ import drewselfie from "../assets/drewselfie.png";
 
 const Post = ({ id, username, userImg, img, caption }) => {
   return (
-    <div className='bg-white my-7 border rounded-md'>
+    <div className="bg-white my-7 border rounded-md">
       {/* Header */}
       <div className="flex items-center p-5">
-        <div className='p-1 mr-3'>
-        <Image
-          src={drewselfie}
-          alt=""
-          className="rounded-full"
-          width="48px"
-          height="48px"
-        />
+        <div className="p-1 mr-3">
+          <Image
+            src={drewselfie}
+            alt=""
+            className="rounded-full"
+            width="48px"
+            height="48px"
+          />
         </div>
-        <p className='flex-1 font-bold'>{username}</p>
+        <p className="flex-1 font-bold">{username}</p>
         <DotsHorizontalIcon className="h-5" />
       </div>
       {/* img */}
-      <Image src={drewselfie} alt="" className='object-cover w-full' />
+      <Image src={drewselfie} alt="" className="object-cover w-full" />
       {/* buttons */}
+      <div className="flex justify-between px-4 pt-4">
+        <div className="flex space-x-4">
+          <HeartIcon className="btn" />
+          <ChatIcon className="btn" />
+          <PaperAirplaneIcon className="btn" />
+        </div>
 
+        <BookmarkIcon className="btn"/>
+      </div>
       {/* caption */}
 
       {/* comments */}
