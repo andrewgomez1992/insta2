@@ -16,7 +16,7 @@ const MiniProfile = () => {
           />
       </div>
 
-      <div>
+      <div className='flex-1 mx-4'>
         <h2 className='font-bold'>_drewgomez_</h2>
         <h3 className='text-sm text-gray-400'>Welcome to Instagram</h3>
       </div>
