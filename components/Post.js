@@ -16,7 +16,7 @@ import drewselfie from "../assets/drewselfie.png";
 
 const Post = ({ id, username, userImg, img, caption }) => {
   return (
-    <div className="bg-white my-7 border-2 rounded-md">
+    <div className="bg-white my-7 border-2 rounded-md shadow-[#434343a3] shadow-md">
       {/* Header */}
       <div className="flex items-center p-5">
         <div className="p-1 mr-3">
@@ -58,7 +58,7 @@ const Post = ({ id, username, userImg, img, caption }) => {
         className="border-none flex-1 focus:ring-0"
         placeholder="Add a comment..."
         />
-        <button className="font-semibold text-[#009eaafe]">Post</button>
+        <button className="font-semibold text-[#2aba53]">Post</button>
       </form>
     </div>
   );

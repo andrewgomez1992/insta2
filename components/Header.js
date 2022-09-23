@@ -14,7 +14,7 @@ import {
 
 const Header = () => {
   return (
-    <div className="shadow-md shadow-[#3c36e9a3] border-b bg-white sticky top-0 z-50">
+    <div className="shadow-md shadow-[#434343a3] border-b bg-white sticky top-0 z-50">
       <div className="flex justify-between max-w-6xl mx-5 xl:mx-auto">
         {/* Left */}
         <div className="relative hidden lg:inline-grid w-24 cursor-pointer">
@@ -39,7 +39,7 @@ const Header = () => {
         <div className="max-w-xs">
           <div className="relative mt-1 p-3 rounded-md">
             <div className="absolute inset-y-0 pl-3 flex items-center pointer-events-none">
-              <SearchIcon className="h-5 w-5 text-gray-500" />
+              <SearchIcon className="h-5 w-5 text-[#3c36e9a3]" />
             </div>
             <input
               type="text"
