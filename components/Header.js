@@ -11,8 +11,13 @@ import {
   UserGroupIcon,
   HeartIcon,
 } from "@heroicons/react/outline";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
+  const { data: session } = useSession();
+
+  console.log(session)
+
   return (
     <div className="shadow-md shadow-[#434343a3] border-b bg-white sticky top-0 z-50">
       <div className="flex justify-between max-w-6xl mx-5 xl:mx-auto">
@@ -57,18 +62,24 @@ const Header = () => {
 
           <div className="relative navBtn">
             <PaperAirplaneIcon className="navBtn hover:rotate-45" />
-            <div className="absolute -top-1 -right-1 text-xs w-4 h-4
+            <div
+              className="absolute -top-1 -right-1 text-xs w-4 h-4
             bg-red-500 rounded-full flex items-center justify-center 
-            text-white animate-pulse">3</div>
+            text-white animate-pulse"
+            >
+              3
+            </div>
           </div>
 
           <PlusCircleIcon className="navBtn" />
           <UserGroupIcon className="navBtn" />
           <HeartIcon className="navBtn" />
 
-          <div className="h-10 w-10 rounded-full
+          <div
+            className="h-10 w-10 rounded-full
         cursor-pointer hover:scale-110 transition 
-        transform duration-200 ease-out" >
+        transform duration-200 ease-out"
+          >
             <Image
               src={drewselfie}
               alt="profile pic"
