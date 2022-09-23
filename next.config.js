@@ -6,8 +6,8 @@ const nextConfig = {
 
 module.exports = nextConfig
 
-// module.exports = {
-//   images: {
-//     domains: ['links.papareact.com']
-//   }
-// }
+module.exports = {
+  images: {
+    domains: ['lh3.googleusercontent.com']
+  }
+}
