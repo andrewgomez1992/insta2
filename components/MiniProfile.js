@@ -5,7 +5,9 @@ import Image from "next/image";
 
 const MiniProfile = () => {
   return (
-    <div className='flex items-center justify-between mt-14 ml-10'>
+    <div className='flex items-center justify-between 
+    mt-14 ml-10 border-2 border-[#3c36e9a3] rounded-md p-3
+    shadow-md shadow-[#3c36e9a3]'>
       <div className='p-[2px]'>
       <Image
             src={drewselfie}

@@ -26,7 +26,7 @@ const Stories = () => {
     <div
       className="flex space-x-2 p-6 bg-white mt-8
      border-gray-200 border-2 rounded-md overflow-x-scroll
-     scrollbar-thin scrollbar-thumb-black"
+     scrollbar-thin scrollbar-thumb-black shadow-md xl:shadow-none shadow-[#3c36e9a3]"
     >
       {list.map((el) => (
         <div key={el.id}>
