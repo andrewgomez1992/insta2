@@ -17,7 +17,7 @@ const Suggestions = () => {
           id: i,
           username: faker.internet.userName(),
           avatar: faker.image.avatar(),
-          companyName: faker.company.companyName(),
+          companyName: faker.company.name(),
         },
       ]);
       i++;
