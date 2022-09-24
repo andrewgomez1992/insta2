@@ -3,7 +3,6 @@ import { faker } from "@faker-js/faker";
 import { useState, useLayoutEffect } from "react";
 
 const Stories = () => {
-
   const [list, setList] = useState([]);
 
   useLayoutEffect((_) => {
@@ -30,9 +29,14 @@ const Stories = () => {
     >
       {list.map((el) => (
         <div key={el.id}>
-          <img src={el.avatar} width="40px" height="40px" alt={el.name} 
-          className='rounded-full p-[1.5px] border-[#3c36e9a3] border-2 object-contain
-        cursor-pointer hover:scale-110 transition transform duration-200 ease-out' />
+          <img
+            src={el.avatar}
+            width="40px"
+            height="40px"
+            alt={el.name}
+            className="rounded-full p-[1.5px] border-[#3c36e9a3] border-2 object-contain
+        cursor-pointer hover:scale-110 transition transform duration-200 ease-out"
+          />
           <p className="text-xs w-14 truncate text-center">{el.username}</p>
         </div>
       ))}
