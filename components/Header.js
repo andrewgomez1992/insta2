@@ -13,9 +13,13 @@ import {
 } from "@heroicons/react/outline";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { modalState } from "../atoms/modalAtom";
+import { useRecoilState, useRecoilValue } from "recoil";
 
 const Header = () => {
   const { data: session } = useSession();
+  const [open, setOpen] = useRecoilState(modalState);
+  const openModal = useRecoilValue(modalState);
   const router = useRouter();
 
   return (
@@ -34,7 +38,10 @@ const Header = () => {
           />
         </div>
 
-        <div onClick={() => router.push("/")} className="relative w-12 lg:hidden flex-shrink-0 cursor-pointer pt-2">
+        <div
+          onClick={() => router.push("/")}
+          className="relative w-12 lg:hidden flex-shrink-0 cursor-pointer pt-2"
+        >
           <Image
             src={iglogo}
             alt="instagram-logo"
@@ -76,7 +83,10 @@ const Header = () => {
                 </div>
               </div>
 
-              <PlusCircleIcon className="navBtn" />
+              <PlusCircleIcon
+                onClick={() => setOpen(true)}
+                className="navBtn"
+              />
               <UserGroupIcon className="navBtn" />
               <HeartIcon className="navBtn" />
 
