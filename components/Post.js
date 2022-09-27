@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import {
@@ -12,6 +13,7 @@ import { useSession } from "next-auth/react"
 import { addDoc, collection, onSnapshot, query, serverTimestamp, orderBy } from "firebase/firestore";
 import { db } from "../firebase"
 import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
+import Moment from "react-moment";
 
 import Image from "next/image";
 import drewselfie from "../assets/drewselfie.png";
@@ -85,14 +87,17 @@ const Post = ({ id, username, userImg, img, caption, userImage }) => {
         <div className="scrollbar-thumb-gray ml-10 h-20 overflow-y-scroll scrollbar-thin">
           {comments.map((comment) => (
             <div key={comment.id} className="mb-3 flex items-center space-x-2">
-              <img src={comment.data().userImg} className="h-7 rounded-full" />
+              <img 
+              src={comment.data().userImg} 
+              className="h-7 rounded-full" 
+              />
               <p className="flex-1 text-sm">
                 <span className="font-bold">{comment.data().username}</span>{' '}
                 {comment.data().comment}
               </p>
-              {/* <Moment fromNow className="pr-5 text-xs">
+              <Moment fromNow className="pr-5 text-xs">
                 {comment.data().timestamp?.toDate()}
-              </Moment> */}
+              </Moment>
             </div>
           ))}
         </div>
