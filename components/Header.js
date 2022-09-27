@@ -24,7 +24,6 @@ const Header = () => {
   return (
     <div className="shadow-md shadow-[#434343a3] border-b bg-white sticky top-0 z-50">
       <div className="flex justify-between max-w-6xl mx-5 xl:mx-auto">
-        {/* Left */}
         <div
           onClick={() => router.push("/")}
           className="relative hidden lg:inline-grid w-24 cursor-pointer"
