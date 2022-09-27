@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BookmarkIcon,
   ChatIcon,
@@ -9,33 +9,42 @@ import {
   PaperAirplaneIcon,
 } from "@heroicons/react/outline";
 import { useSession } from "next-auth/react"
-import { addDoc, collection, doc, serverTimestamp, updateDoc } from "firebase/firestore";
+import { addDoc, collection, onSnapshot, query, serverTimestamp, orderBy } from "firebase/firestore";
 import { db } from "../firebase"
 import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
 
 import Image from "next/image";
 import drewselfie from "../assets/drewselfie.png";
 
-const Post = ({ id, username, userImg, img, caption }) => {
+const Post = ({ id, username, userImg, img, caption, userImage }) => {
   const { data: session } = useSession()
   const [comment, setComment] = useState("")
   const [comments, setComments] = useState([])
 
-  const sendComment = async (e) => {
-    e.preventDefault();
+  useEffect(() =>
+    onSnapshot(
+      query(
+        collection(db, 'posts', id, 'comments'),
+        orderBy('timestamp', 'desc')
+      ),
+      (snapshot) => setComments(snapshot.docs)
+    ), [db, id])
 
-    const commentToSend = comment;
-    setComment('');
+    const sendComment = async (e) => {
+      e.preventDefault();
+  
+      const commentToSend = comment;
+      setComment('');
+  
+      await addDoc(collection(db, 'posts', id, 'comments'), {
+        comment: commentToSend,
+        username: session.user.username,
+        userImg: session.user.image,
+        timestamp: serverTimestamp(),
+      });
+    };
 
-    await addDoc(collection(db, 'posts', id, 'comments'), {
-      comment: commentToSend,
-      username: session.user.username,
-      userImage: session.user.image,
-      timestamp: serverTimestamp()
-    })
-  }
-
-
+  console.log("comments", comments)
   return (
     <div className="bg-white my-7 border-2 rounded-md shadow-[#434343a3] shadow-md">
       {/* Header */}
@@ -72,6 +81,22 @@ const Post = ({ id, username, userImg, img, caption }) => {
         {caption}
       </p>
       {/* comments */}
+      {comments.length > 0 && (
+        <div className="scrollbar-thumb-gray ml-10 h-20 overflow-y-scroll scrollbar-thin">
+          {comments.map((comment) => (
+            <div key={comment.id} className="mb-3 flex items-center space-x-2">
+              <img src={comment.data().userImg} className="h-7 rounded-full" />
+              <p className="flex-1 text-sm">
+                <span className="font-bold">{comment.data().username}</span>{' '}
+                {comment.data().comment}
+              </p>
+              {/* <Moment fromNow className="pr-5 text-xs">
+                {comment.data().timestamp?.toDate()}
+              </Moment> */}
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* input box */}
       {session && (
@@ -84,11 +109,11 @@ const Post = ({ id, username, userImg, img, caption }) => {
             className="border-none flex-1 focus:ring-0"
             placeholder="Add a comment..."
           />
-          <button 
-          type='submit'
-          disabled={!comment.trim()} 
-          onClick={sendComment} 
-          className="font-semibold text-[#2aba53]">Post</button>
+          <button
+            type='submit'
+            disabled={!comment.trim()}
+            onClick={sendComment}
+            className="font-semibold text-[#2aba53]">Post</button>
         </form>
       )}
     </div>
