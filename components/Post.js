@@ -16,9 +16,6 @@ import { db } from "../firebase"
 import { HeartIcon as HeartIconFilled } from "@heroicons/react/solid";
 import Moment from "react-moment";
 
-import Image from "next/image";
-import drewselfie from "../assets/drewselfie.png";
-
 const Post = ({ id, username, userImg, img, caption, userImage }) => {
   const { data: session } = useSession();
   const [comment, setComment] = useState("");
@@ -93,16 +90,23 @@ const Post = ({ id, username, userImg, img, caption, userImage }) => {
       {session && (
         <div className="flex justify-between px-4 pt-4">
           <div className="flex space-x-4">
-            <HeartIcon onClick={likePost} className="btn" />
+            {hasLiked ? (
+              <HeartIconFilled onClick={likePost} className="text-red-500 btn" />
+            ) : (
+              <HeartIcon onClick={likePost} className="btn" />
+            )}
             <ChatIcon className="btn" />
             <PaperAirplaneIcon className="btn" />
           </div>
-
           <BookmarkIcon className="btn" />
         </div>
       )}
       {/* caption */}
       <p className="p-5 truncate">
+        {likes.length > 0 && (
+          <p className="font-bold mb-1">{likes.length} likes</p>
+        )}
+
         <span className="font-bold mr-1">{username}</span>
         {caption}
       </p>
@@ -130,7 +134,7 @@ const Post = ({ id, username, userImg, img, caption, userImage }) => {
       {/* input box */}
       {session && (
         <form className="flex items-center p-4">
-          <EmojiHappyIcon className="h-7" />
+          <EmojiHappyIcon className="h-7 btn" />
           <input
             type="text"
             value={comment}
