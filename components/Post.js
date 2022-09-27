@@ -154,5 +154,3 @@ const Post = ({ id, username, userImg, img, caption, userImage }) => {
 };
 
 export default Post;
-
-// test
