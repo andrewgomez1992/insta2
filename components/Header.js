@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import instagram from "../assets/instagram.png";
 import iglogo from "../assets/iglogo.png";
-import drewselfie from "../assets/drewselfie.png";
 
 import { SearchIcon, MenuIcon, HomeIcon } from "@heroicons/react/solid";
 import {
