@@ -104,7 +104,7 @@ const Post = ({ id, username, userImg, img, caption, userImage }) => {
       {/* caption */}
       <p className="p-5 truncate">
         {likes.length > 0 && (
-          <p className="font-bold mb-1">{likes.length} likes</p>
+          <p className="font-bold mb-1">{likes.length} <span>{likes.length > 1 ? 'likes' : 'like'}</span></p>
         )}
 
         <span className="font-bold mr-1">{username}</span>
