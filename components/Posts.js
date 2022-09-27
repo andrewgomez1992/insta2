@@ -1,45 +1,21 @@
-import React, { useEffect, useState } from "react";
-import Post from "./Post";
-import drewselfie from "../assets/drewselfie.png";
-import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import { db } from "../firebase";
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
+import { db } from '../firebase';
+import Post from './Post';
 
-const posts = [
-  {
-    id: "1",
-    username: "_drewgomez_",
-    userImg: { drewselfie },
-    img: { drewselfie },
-    caption: "Fresh haircut :)",
-  },
-  {
-    id: "2",
-    username: "_drewgomez_",
-    userImg: { drewselfie },
-    img: { drewselfie },
-    caption: "Fresh haircut :)",
-  },
-  {
-    id: "3",
-    username: "_drewgomez_",
-    userImg: { drewselfie },
-    img: { drewselfie },
-    caption: "Fresh haircut :)",
-  },
-];
-
-const Posts = () => {
+export default function Posts() {
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    const unsubscribe = onSnapshot(query(collection(db, 'posts'), orderBy('timestamp', 'desc')), snapshot => {
-      setPosts(snapshot.docs);
-    })
-
-    return () => {
-      unsubscribe();
-    }
-  }, [])
+  useEffect(
+    () =>
+      onSnapshot(
+        query(collection(db, 'posts'), orderBy('timestamp', 'desc')),
+        (snapshot) => {
+          setPosts(snapshot.docs);
+        }
+      ),
+    [db]
+  );
 
   return (
     <div>
@@ -47,14 +23,12 @@ const Posts = () => {
         <Post
           key={post.id}
           id={post.id}
-          username={post.username}
-          userImg={post.userImg}
-          img={post.img}
-          caption={post.caption}
+          username={post.data().username}
+          userImg={post.data().userImg}
+          img={post.data().image}
+          caption={post.data().caption}
         />
       ))}
     </div>
   );
-};
-
-export default Posts;
+}
